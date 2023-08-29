@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private auth: AuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return;
     }
-    console.log(this.loginForm.value);
-    // this.router.navigate(['dashboard']);
+    // console.log(this.loginForm.value);
+    const user = this.loginForm.value;
+    this.auth.login(user).subscribe((res) => {
+      console.log(res);
+      // this.router.navigate(['/']);
+    });
   }
 }

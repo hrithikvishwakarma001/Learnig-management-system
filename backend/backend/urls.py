@@ -23,4 +23,11 @@ urlpatterns = [
     re_path('api/login',view.login,name='login'),
     re_path('api/test-token',view.test_token,name='test-token'),
     re_path('api/logout',view.logout,name='logout'),
+    
+    #  user crud
+    path('api/users',view.get_users,name='get-users'),
+    path('api/users/<int:pk>',view.get_user,name='get-user'),
+    path('api/users/<int:pk>/delete',view.delete_user,name='delete-user'),
+    path('api/users/<int:pk>/update',view.update_user,name='update-user'),
+    
 ]

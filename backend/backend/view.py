@@ -7,7 +7,7 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-
+from django.contrib.auth.hashers import make_password
 from .serializers import UserSerializer
 
 @api_view(['POST'])
@@ -46,3 +46,47 @@ def logout(request):
 
 
 
+@api_view(['GET'])
+def get_users(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def delete_user(request, pk):
+    try:
+        user = User.objects.get(pk=pk)
+    except User.DoesNotExist:
+        return Response("User not found", status=status.HTTP_404_NOT_FOUND)
+
+    user.delete()
+    return Response("User deleted", status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_user(request, pk):
+    try:
+        user = User.objects.get(pk=pk)
+    except User.DoesNotExist:
+        return Response("User not found", status=status.HTTP_404_NOT_FOUND)
+
+    serializer = UserSerializer(user)
+    return Response(serializer.data)
+
+@api_view(['PUT'])
+def update_user(request, pk):
+    try:
+        user = User.objects.get(pk=pk)
+    except User.DoesNotExist:
+        return Response("User not found", status=status.HTTP_404_NOT_FOUND)
+
+    serializer = UserSerializer(user, data=request.data)
+    if serializer.is_valid():
+        new_password = serializer.validated_data.get('password')  # Get the new password from the serializer data
+
+        if new_password:
+            hashed_password = make_password(new_password)  # Hash the new password
+            serializer.validated_data['password'] = hashed_password  # Update the serializer data with the hashed password
+
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

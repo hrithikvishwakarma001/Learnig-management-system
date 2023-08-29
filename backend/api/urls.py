@@ -2,10 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Define your API endpoints here using path() function
-    # Example: path('api/students/', views.StudentList.as_view(), name='student-list'),
-    # Make sure to replace `StudentList` with your actual API view
     path('',views.index,name='index'),
+    
+    # STUDENT CRUD
     path('api/students/', views.student_list, name='student-list'),
     path('api/students/<int:pk>/', views.student_detail, name='student-detail'),
     path('api/students/create/', views.student_create, name='student-create'),

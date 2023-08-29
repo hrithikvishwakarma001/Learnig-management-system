@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'api',
+    'rest_framework',
+    "rest_framework.authtoken"
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    # Other settings...
+    # 'TOKEN_EXPIRATION': 3600,
+}
+
+
+#  In middleware
+# from datetime import datetime, timedelta
+# from rest_framework.authentication import TokenAuthentication
+# from rest_framework.exceptions import AuthenticationFailed
+# from django.utils import timezone
+
+# class ExpiringTokenAuthentication(TokenAuthentication):
+#     def authenticate_credentials(self, key):
+#         user, token = super().authenticate_credentials(key)
+#         if token.created < timezone.now() - timedelta(seconds=settings.TOKEN_EXPIRATION):
+#             raise AuthenticationFailed('Token has expired')
+#         return user, token

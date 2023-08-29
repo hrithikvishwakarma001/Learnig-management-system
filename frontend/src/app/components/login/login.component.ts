@@ -30,11 +30,15 @@ export class LoginComponent implements OnInit {
     const user = this.loginForm.value;
     this.auth.login(user).subscribe((res) => {
       // console.log(res);
+      // delete password from users and same with token into localstorage
+      delete user.password;
+      res = Object.assign(user, res)
       if (res) {
+        console.log(res);
         localStorage.setItem('token', JSON.stringify(res));
       }
-      alert('Login successful');
-      // this.router.navigate(['/']);
+      alert('Login successfull');
+      this.router.navigate(['/welcome']);
     });
   }
 }

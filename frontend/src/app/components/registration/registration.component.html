@@ -13,7 +13,6 @@
       <h1 class="text-3xl font-bold first-letter:text-5xl">LMS</h1>
     </div>
     <a
-      href="#"
       class="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
     >
       <div class="px-4 py-2">
@@ -45,71 +44,143 @@
     <div class="flex items-center justify-between mt-4">
       <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
-      <a
-        href="#"
+      <p
         class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
-        >or signup with email</a
       >
+        or signup with email
+      </p>
 
       <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
     </div>
 
-    <div class="mt-4">
-      <label
-        class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-        for="LoggingEmailAddress"
-        >Username</label
-      >
-      <input
-        id="LoggingEmailAddress"
-        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-        type="text"
-        placeholder="Enter your username"
-      />
-    </div>
-    <div class="mt-4">
-      <label
-        class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-        for="LoggingEmailAddress"
-        >Email Address</label
-      >
-      <input
-        id="LoggingEmailAddress"
-        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-        type="email"
-        placeholder="Enter your email address"
-      />
-    </div>
-
-    <div class="mt-4">
-      <div class="flex justify-between">
+    <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+      <div class="mt-4">
         <label
           class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-          for="loggingPassword"
-          >Password</label
+          for="username"
+          >Username</label
         >
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          type="text"
+          placeholder="Enter your username"
+        />
+        <p>
+          <span
+            *ngIf="
+              registrationForm.get('username')?.hasError('required') &&
+              registrationForm.get('username')?.touched
+            "
+            class="text-red-500 mt-1"
+          >
+            Username is required
+          </span>
+          <span
+            *ngIf="
+              registrationForm.get('username')?.hasError('minlength') &&
+              registrationForm.get('username')?.touched
+            "
+            class="text-red-500 mt-1"
+          >
+            Username must be at least 3 characters long
+          </span>
+        </p>
+      </div>
+      <div class="mt-4">
+        <label
+          class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+          for="email"
+          >Email Address</label
+        >
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          type="email"
+          placeholder="Enter your email"
+        />
+        <p>
+          <span
+            *ngIf="
+              registrationForm.get('email')?.hasError('required') &&
+              registrationForm.get('email')?.touched
+            "
+            class="text-red-500 mt-1"
+          >
+            Email is required
+          </span>
+          <span
+            *ngIf="
+              registrationForm.get('email')?.hasError('email') &&
+              registrationForm.get('email')?.touched
+            "
+            class="text-red-500 mt-1"
+          >
+            Email is invalid
+          </span>
+        </p>
       </div>
 
-      <input
-        id="loggingPassword"
-        class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-        type="password"
-        placeholder="Enter your password"
-      />
-    </div>
+      <div class="mt-4">
+        <div class="flex justify-between">
+          <label
+            class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+            for="loggingPassword"
+            >Password</label
+          >
+        </div>
 
-    <div class="mt-6">
-      <button
-        class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-      >
-        Sign Up
-      </button>
-    </div>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          type="password"
+          placeholder="Enter your password"
+        />
+        <p>
+          <span
+            *ngIf="
+              registrationForm.get('password')?.hasError('required') &&
+              registrationForm.get('password')?.touched
+            "
+            class="text-red-500 mt-1"
+          >
+            Password is required
+          </span>
+          <span
+            *ngIf="
+              registrationForm.get('password')?.hasError('minlength') &&
+              registrationForm.get('password')?.touched
+            "
+            class="text-red-500 mt-1"
+          >
+            Password must be at least 4 characters long
+          </span>
+        </p>
+      </div>
 
+      <div class="mt-6">
+        <button
+          type="submit"
+          [disabled]="registrationForm.invalid"
+          [ngClass]="{
+            'opacity-50 cursor-not-allowed': registrationForm.invalid
+          }"
+          class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+        >
+          Sign Up
+        </button>
+      </div>
+    </form>
     <div class="flex items-center justify-between mt-4">
       <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
       <a
-        href="#"
+        routerLink="/"
         class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
         >or sign in</a
       >

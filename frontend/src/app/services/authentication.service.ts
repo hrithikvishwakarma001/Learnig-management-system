@@ -14,7 +14,14 @@ const httpOptions = {
 export class AuthenticationService {
   private baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
-  login(user: User): Observable<any> {
+  login(user: User): Observable<User> {
     return this.http.post<User>(`${this.baseUrl}/api/login`, user, httpOptions);
+  }
+  register(user: User): Observable<User> {
+    return this.http.post<User>(
+      `${this.baseUrl}/api/signup`,
+      user,
+      httpOptions,
+    );
   }
 }

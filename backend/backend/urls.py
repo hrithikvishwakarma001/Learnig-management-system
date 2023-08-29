@@ -21,5 +21,6 @@ urlpatterns = [
     path('',include('api.urls')),
     re_path('api/signup',view.signup,name='signup'),
     re_path('api/login',view.login,name='login'),
-    re_path('api/test-token',view.test_token,name='test-token')
+    re_path('api/test-token',view.test_token,name='test-token'),
+    re_path('api/logout',view.logout,name='logout'),
 ]

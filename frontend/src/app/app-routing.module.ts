@@ -6,14 +6,23 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { StudentComponent } from './components/student/student.component';
 import { InstructorComponent } from './components/instructor/instructor.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'welcome', component: WelcomeComponent },
-  { path: 'student', component: StudentComponent },
-  { path: 'instructor', component: InstructorComponent },
+  {
+    path: 'dashboard',
+    canActivate: [authGuard],
+    component: DashboardComponent,
+  },
+  { path: 'welcome', canActivate: [authGuard], component: WelcomeComponent },
+  { path: 'student', canActivate: [authGuard], component: StudentComponent },
+  {
+    path: 'instructor',
+    canActivate: [authGuard],
+    component: InstructorComponent,
+  },
 ];
 
 @NgModule({

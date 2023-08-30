@@ -10,20 +10,22 @@ import { InstructorService } from 'src/app/services/instructor.service';
 })
 export class InstructorComponent {
   instructorForm!: FormGroup;
-  alreadyExistEmail: string = JSON.parse(localStorage.getItem('token') || '{}')
-    .email;
+  alreadyExistEmail: any = JSON.parse(localStorage.getItem('token') || '{}');
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private instructorService: InstructorService,
   ) {}
   ngOnInit(): void {
+    // if (!this.alreadyExistEmail) {
+    //   this.router.navigate(['/']);
+    // }
     this.instructorForm = this.fb.group({
       name: ['', [Validators.required]],
       gender: ['', [Validators.required, Validators.minLength(4)]],
       date_of_birth: ['', [Validators.required]],
       department: ['', [Validators.required]],
-      email: [this.alreadyExistEmail],
+      email: [this.alreadyExistEmail?.user?.email],
       contact_number: [
         '',
         [

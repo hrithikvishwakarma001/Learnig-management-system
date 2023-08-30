@@ -29,10 +29,6 @@ export class LoginComponent implements OnInit {
     // console.log(this.loginForm.value);
     const user = this.loginForm.value;
     this.auth.login(user).subscribe((res) => {
-      // console.log(res);
-      // delete password from users and same with token into localstorage
-      delete user.password;
-      res = Object.assign(user, res)
       if (res) {
         console.log(res);
         localStorage.setItem('token', JSON.stringify(res));

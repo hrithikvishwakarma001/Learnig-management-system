@@ -7,7 +7,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { StudentComponent } from './components/student/student.component';
 import { InstructorComponent } from './components/instructor/instructor.component';
 import { authGuard } from './guards/auth.guard';
-
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'dashboard',
     canActivate: [authGuard],
     component: DashboardComponent,
+    children: [
+      { path: '', redirectTo: 'profile', pathMatch: 'full' },
+      { path: 'profile', component: ProfileComponent, outlet: 'd' },
+    ],
   },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'student', canActivate: [authGuard], component: StudentComponent },

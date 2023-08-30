@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudentComponent } from './components/student/student.component';
 import { InstructorComponent } from './components/instructor/instructor.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InstructorComponent } from './components/instructor/instructor.componen
     FooterComponent,
     DashboardComponent,
     StudentComponent,
-    InstructorComponent
+    InstructorComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

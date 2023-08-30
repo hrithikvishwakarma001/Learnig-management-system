@@ -36,13 +36,18 @@ export class LoginComponent implements OnInit {
     }
     // console.log(this.loginForm.value);
     const user = this.loginForm.value;
-    this.auth.login(user).subscribe((res) => {
-      if (res) {
-        // console.log(res);
-        localStorage.setItem('token', JSON.stringify(res));
-      }
-      alert('Login successfull');
-      this.router.navigate(['/welcome']);
-    });
+    this.auth.login(user).subscribe(
+      (res) => {
+        if (res) {
+          // console.log(res);
+          localStorage.setItem('token', JSON.stringify(res));
+        }
+        alert('Login successfully');
+        this.router.navigate(['/welcome']);
+      },
+      (err) => {
+        alert('Login failed, please try again');
+      },
+    );
   }
 }

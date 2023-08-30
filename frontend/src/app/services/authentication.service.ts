@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-
 import { environment } from 'src/environments/environment.development';
 import { User } from '../User';
 const httpOptions = {
@@ -23,5 +22,11 @@ export class AuthenticationService {
       user,
       httpOptions,
     );
+  }
+  logout() {
+    const confirm:boolean = window.confirm('Are you sure you want to logout?');
+    if(!confirm) return;
+    localStorage.clear();
+    return this.http.get(`${this.baseUrl}/api/logout`)
   }
 }

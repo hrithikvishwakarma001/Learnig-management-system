@@ -8,6 +8,7 @@ import { StudentComponent } from './components/student/student.component';
 import { InstructorComponent } from './components/instructor/instructor.component';
 import { authGuard } from './guards/auth.guard';
 
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
     canActivate: [authGuard],
     component: DashboardComponent,
   },
-  { path: 'welcome', canActivate: [authGuard], component: WelcomeComponent },
+  { path: 'welcome', component: WelcomeComponent },
   { path: 'student', canActivate: [authGuard], component: StudentComponent },
   {
     path: 'instructor',

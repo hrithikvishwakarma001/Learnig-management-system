@@ -50,12 +50,12 @@ export class InstructorComponent {
         '👻 -> file: instructor.component.ts:33 -> InstructorComponent -> createProfile -> response:',
         response,
       );
-      if (response.status == 200) {
+      if (response.status == 201) {
         alert('Instructor profile created successfully');
         localStorage.setItem('instructor', JSON.stringify(response.data));
         localStorage.removeItem('student');
       }
-      // this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard']);
     });
   }
 }

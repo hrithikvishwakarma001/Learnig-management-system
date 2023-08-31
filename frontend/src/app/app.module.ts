@@ -5,14 +5,15 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { StudentComponent } from './components/student/student.component';
-import { InstructorComponent } from './components/instructor/instructor.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { InstructorComponent } from './pages/instructor/instructor.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CoursesComponent } from './pages/courses/courses.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     WelcomeComponent,
     FooterComponent,
     DashboardComponent,
-    StudentComponent,
     InstructorComponent,
-    ProfileComponent
+    ProfileComponent,
+    CoursesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

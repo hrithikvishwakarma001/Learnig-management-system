@@ -10,11 +10,13 @@ import { CourseService } from 'src/app/services/course.service';
 
 export class CoursesComponent {
   courses!: Course[];
-  ngOnInit(): void {}
-
+  constructor(private courseService: CourseService) {
+    this.getCourses();
+  }
   getCourses(): void {
-    // this.courseService.getCourses().subscribe((data: any) => {
-    //   this.courses = data;
-    // });
+    this.courseService.getCourses().subscribe((res: any) => {
+      this.courses = res.data;
+      // console.log(this.courses);
+    });
   }
 }

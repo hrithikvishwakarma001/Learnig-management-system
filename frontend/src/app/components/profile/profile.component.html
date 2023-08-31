@@ -1,7 +1,9 @@
 <section class="min-h-screen bg-white dark:bg-gray-900">
   <div class="container px-6 py-10 mx-auto">
-    <div class="flex flex-col-reverse lg:flex lg:items-center lg:-mx-10 lg:flex-row">
-      <div class="  lg:w-1/2 lg:mx-10">
+    <div
+      class="flex flex-col-reverse lg:flex lg:items-center lg:-mx-10 lg:flex-row"
+    >
+      <div class="lg:w-1/2 lg:mx-10">
         <h1
           class="text-2xl font-semibold text-gray-800 capitalize dark:text-white lg:text-3xl"
         >
@@ -23,6 +25,8 @@
               >Full Name</label
             >
             <input
+              name="name"
+              id="name"
               formControlName="name"
               type="text"
               placeholder="John Doe"
@@ -213,7 +217,7 @@
           src="../../../assets/images/profile.png"
           alt=""
         />
-        <div class="hidden mt-6 space-y-8 md:mt-8 xl:block" >
+        <div class="hidden mt-6 space-y-8 md:mt-8 xl:block">
           <p class="flex items-start -mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"

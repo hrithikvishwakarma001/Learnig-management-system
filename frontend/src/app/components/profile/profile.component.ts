@@ -33,24 +33,24 @@ export class ProfileComponent implements OnInit {
     this.instructorService.getById(instructorId).subscribe(
       (res) => {
         this.instructorData = res.data;
-        this.initializeForm();
+        this.initializeForm(res.data);
       },
       (err) => console.error(err),
     );
   }
 
-  initializeForm(): void {
+  initializeForm(data:Instructor): void {
     this.UpdateForm = this.fb.group({
-      name: [this.instructorData.name, Validators.required],
+      name: [data.name, Validators.required],
       gender: [
-        this.instructorData.gender,
+        data.gender,
         [Validators.required, Validators.minLength(4)],
       ],
-      date_of_birth: [this.instructorData.date_of_birth, Validators.required],
-      department: [this.instructorData.department, Validators.required],
-      email: [this.instructorData.email, Validators.required],
+      date_of_birth: [data.date_of_birth, Validators.required],
+      department: [data.department, Validators.required],
+      email: [data.email, Validators.required],
       contact_number: [
-        this.instructorData.contact_number,
+        data.contact_number,
         [
           Validators.required,
           Validators.minLength(10),

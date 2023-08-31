@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InstructorService } from 'src/app/services/instructor.service';
-import { Instructor } from 'src/app/Instructor';
+import { Instructor } from 'src/app/types/Instructor';
 
 @Component({
   selector: 'app-profile',

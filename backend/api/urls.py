@@ -20,8 +20,14 @@ urlpatterns = [
     
     # DEPARTMENT CRUD
     path('api/department/create', views.department_create, name='department-create'),
-    path("api/department",views.department_list,name="department-list"),
-    path('departments/update/<int:pk>/', views.department_update),
-    path('departments/delete/<int:pk>/', views.department_delete),
+    path("api/departments",views.department_list,name="department-list"),
+    path('api/departments/update/<int:pk>/', views.department_update),
+    path('api/departments/delete/<int:pk>/', views.department_delete),
     
+    # COURSE CRUD
+    path('api/courses', views.course_list, name='course-list'),
+    # path('courses/<int:pk>/', views.course_detail),
+    path('api/courses/create', views.course_create, name='course-create'),
+    # path('courses/update/<int:pk>/', views.course_update),
+    # path('courses/delete/<int:pk>/', views.course_delete),
 ]

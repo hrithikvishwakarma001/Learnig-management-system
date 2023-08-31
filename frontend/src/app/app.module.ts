@@ -14,6 +14,7 @@ import { InstructorComponent } from './pages/instructor/instructor.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CourseCardComponent } from './components/course-card/course-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     InstructorComponent,
     ProfileComponent,
     CoursesComponent,
-    NavbarComponent
+    NavbarComponent,
+    CourseCardComponent
   ],
   imports: [
     BrowserModule,

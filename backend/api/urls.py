@@ -21,5 +21,7 @@ urlpatterns = [
     # DEPARTMENT CRUD
     path('api/department/create', views.department_create, name='department-create'),
     path("api/department",views.department_list,name="department-list"),
+    path('departments/update/<int:pk>/', views.department_update),
+    path('departments/delete/<int:pk>/', views.department_delete),
     
 ]

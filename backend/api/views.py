@@ -209,3 +209,41 @@ def department_list(request):
         'status': status.HTTP_200_OK,
         'data': serializer.data
     })
+    
+@api_view(['PUT'])
+def department_update(request, pk):
+    try:
+        department = Department.objects.get(pk=pk)
+    except Department.DoesNotExist:
+        return Response({
+            'message': 'Department does not exist',
+            'status': status.HTTP_404_NOT_FOUND
+        })
+    serializer = DepartmentSerializer(department, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({
+            'message': 'Department updated successfully',
+            'status': status.HTTP_200_OK,
+            'data': serializer.data
+        })
+    return Response({
+        'message': 'Department not updated',
+        'status': status.HTTP_400_BAD_REQUEST,
+        'data': serializer.errors
+    })
+
+@api_view(['DELETE'])
+def department_delete(request, pk):
+    try:
+        department = Department.objects.get(pk=pk)
+    except Department.DoesNotExist:
+        return Response({
+            'message': 'Department does not exist',
+            'status': status.HTTP_404_NOT_FOUND
+        })
+    department.delete()
+    return Response({
+        'message': 'Department deleted successfully',
+        'status': status.HTTP_200_OK
+    })

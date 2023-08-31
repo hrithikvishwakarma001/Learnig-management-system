@@ -37,9 +37,7 @@ class Instructor(models.Model):
 
 
 class Department(models.Model):
-    name = models.CharField(max_length=100)
-    # You might want to add additional fields here
-
+    name = models.CharField(max_length=100,choices=MAJOR_CHOICES)
     def __str__(self):
         return self.name
 

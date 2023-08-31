@@ -3,8 +3,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Student
 from .models import Instructor
+from .models import Department
 from .serializers import StudentSerializer
 from .serializers import InstructorSerializer
+from .serializers import DepartmentSerializer
 # Create your views here.
 
 
@@ -133,7 +135,7 @@ def instructor_create(request):
         return Response({
             'message': 'Instructor created successfully',
             'status': status.HTTP_201_CREATED,
-            'data': serializer.data
+            "data": serializer.data
         })
     return Response({
         'message': 'Instructor not created',
@@ -177,4 +179,33 @@ def instructor_delete(request, pk):
     return Response({
         'message': 'Instructor deleted successfully',
         'status': status.HTTP_200_OK
+    })
+
+
+# DEPARTMENT CRUD
+
+@api_view(['POST'])
+def department_create(request):
+    serializer = DepartmentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({
+            'message': 'Department created successfully',
+            'status': status.HTTP_201_CREATED,
+            'data': serializer.data
+        })
+    return Response({
+        'message': 'Department not created',
+        'status': status.HTTP_400_BAD_REQUEST,
+        'data': serializer.errors
+    })
+
+@api_view(['GET'])
+def department_list(request):
+    departments = Department.objects.all()
+    serializer = DepartmentSerializer(departments, many=True)
+    return Response({
+        'message': 'List of all departments',
+        'status': status.HTTP_200_OK,
+        'data': serializer.data
     })

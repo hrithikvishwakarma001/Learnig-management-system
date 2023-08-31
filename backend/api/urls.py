@@ -12,10 +12,14 @@ urlpatterns = [
     path('api/students/delete/<int:pk>/', views.student_delete, name='student-delete'),
     
     # INSTRUCTOR CRUD
-    path('api/instructors/', views.instructor_list, name='instructor-list'),
-    path('api/instructors/<int:pk>/', views.instructor_detail, name='instructor-detail'),
-    path('api/instructors/create/', views.instructor_create, name='instructor-create'),
-    path('api/instructors/update/<int:pk>/', views.instructor_update, name='instructor-update'),  
-    path('api/instructors/delete/<int:pk>/', views.instructor_delete, name='instructor-delete'),
+    path('api/instructors', views.instructor_list, name='instructor-list'),
+    path('api/instructors/<int:pk>', views.instructor_detail, name='instructor-detail'),
+    path('api/instructors/create', views.instructor_create, name='instructor-create'),
+    path('api/instructors/<int:pk>/update', views.instructor_update, name='instructor-update'),  
+    path('api/instructors/<int:pk>/delete', views.instructor_delete, name='instructor-delete'),
+    
+    # DEPARTMENT CRUD
+    path('api/department/create', views.department_create, name='department-create'),
+    path("api/department",views.department_list,name="department-list"),
     
 ]

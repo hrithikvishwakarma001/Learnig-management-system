@@ -26,8 +26,8 @@ urlpatterns = [
     
     # COURSE CRUD
     path('api/courses', views.course_list, name='course-list'),
-    # path('courses/<int:pk>/', views.course_detail),
+    path('api/courses/<int:pk>', views.course_detail, name='course-detail'),
     path('api/courses/create', views.course_create, name='course-create'),
-    # path('courses/update/<int:pk>/', views.course_update),
-    # path('courses/delete/<int:pk>/', views.course_delete),
+    path('api/courses/<int:pk>/update', views.course_update, name='course-update'),
+    path('api/courses/<int:pk>/delete', views.course_delete, name='course-delete'),
 ]

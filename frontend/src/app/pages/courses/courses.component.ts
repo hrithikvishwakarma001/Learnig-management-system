@@ -11,6 +11,8 @@ import { CourseService } from 'src/app/services/course.service';
 export class CoursesComponent {
   courses!: Course[];
   constructor(private courseService: CourseService) {
+  }
+  ngOnInit(): void {
     this.getCourses();
   }
   getCourses(): void {

@@ -8,6 +8,7 @@ import { InstructorComponent } from './pages/instructor/instructor.component';
 import { authGuard } from './guards/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CoursesComponent } from './pages/courses/courses.component';
+import { CourseCreateComponent } from './components/course-create/course-create.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'profile', pathMatch: 'full' },
       { path: 'profile', component: ProfileComponent, outlet: 'd' },
       { path: 'courses', component: CoursesComponent, outlet: 'd' },
+      { path: 'course-create', component: CourseCreateComponent, outlet: 'd' },
     ],
   },
   { path: 'welcome', component: WelcomeComponent },

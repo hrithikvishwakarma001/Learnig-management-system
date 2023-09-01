@@ -1,5 +1,5 @@
 <div
-  class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl mt-[150px]"
+  class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl mt-[150px]"
 >
   <div
     class="hidden bg-cover lg:block lg:w-[60%] h-[550px]"
@@ -13,7 +13,7 @@
       <h1 class="text-3xl font-bold first-letter:text-5xl">LMS</h1>
     </div>
     <a
-      class="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+      class="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 -600"
     >
       <div class="px-4 py-2">
         <svg class="w-6 h-6" viewBox="0 0 40 40">
@@ -42,21 +42,21 @@
     </a>
 
     <div class="flex items-center justify-between mt-4">
-      <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
+      <span class="w-1/5 border-b  lg:w-1/4"></span>
 
       <p
-        class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
+        class="text-xs text-center text-gray-500 uppercase  hover:underline"
       >
         or signup with email
       </p>
 
-      <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
+      <span class="w-1/5 border-b  lg:w-1/4"></span>
     </div>
 
     <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
       <div class="mt-4">
         <label
-          class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+          class="block mb-2 text-sm font-medium text-gray-600 "
           for="username"
           >Username</label
         >
@@ -64,7 +64,7 @@
           id="username"
           type="text"
           formControlName="username"
-          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
           type="text"
           placeholder="Enter your username"
         />
@@ -91,7 +91,7 @@
       </div>
       <div class="mt-4">
         <label
-          class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+          class="block mb-2 text-sm font-medium text-gray-600 "
           for="email"
           >Email Address</label
         >
@@ -99,7 +99,7 @@
           id="email"
           type="email"
           formControlName="email"
-          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
           type="email"
           placeholder="Enter your email"
         />
@@ -128,7 +128,7 @@
       <div class="mt-4">
         <div class="flex justify-between">
           <label
-            class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+            class="block mb-2 text-sm font-medium text-gray-600 "
             for="loggingPassword"
             >Password</label
           >
@@ -138,7 +138,7 @@
           id="password"
           type="password"
           formControlName="password"
-          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
           type="password"
           placeholder="Enter your password"
         />
@@ -178,13 +178,13 @@
       </div>
     </form>
     <div class="flex items-center justify-between mt-4">
-      <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+      <span class="w-1/5 border-b  md:w-1/4"></span>
       <a
         routerLink="/"
-        class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
+        class="text-xs text-gray-500 uppercase  hover:underline"
         >or sign in</a
       >
-      <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+      <span class="w-1/5 border-b  md:w-1/4"></span>
     </div>
   </div>
 </div>

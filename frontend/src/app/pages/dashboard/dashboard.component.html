@@ -1,6 +1,6 @@
-<div class="flex h-screen bg-gray-50 dark:bg-gray-900 justify-between">
+<div class="flex h-screen bg-gray-50 justify-between">
   <aside
-    class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700"
+    class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l  "
   >
     <a href="#">
       <h1 class="text-3xl font-bold first-letter:text-5xl">LMS</h1>
@@ -10,13 +10,13 @@
       <nav class="-mx-3 space-y-6">
         <div class="space-y-3">
           <label
-            class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400"
+            class="px-3 text-xs text-gray-500 uppercase "
           >
             General
           </label>
           <!-- DASHBOARD -->
           <a
-            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
             routerLink="/dashboard"
           >
             <svg
@@ -38,7 +38,7 @@
           </a>
 
           <a
-            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
             routerLink="/departments"
           >
             <svg
@@ -61,12 +61,12 @@
         </div>
 
         <div class="space-y-3">
-          <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400"
+          <label class="px-3 text-xs text-gray-500 uppercase "
             >content</label
           >
 
           <a
-            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
             [routerLink]="['/dashboard', { outlets: { d: ['courses'] } }]"
           >
             <svg
@@ -88,7 +88,7 @@
           </a>
 
           <a
-            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
             routerLink="/submission"
           >
             <svg
@@ -110,7 +110,7 @@
           </a>
 
           <a
-            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
             routerLink="/assignments"
           >
             <svg
@@ -131,7 +131,7 @@
             <span class="mx-2 text-sm font-medium">Assignments</span>
           </a>
           <a
-            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
             routerLink="/enrollments"
           >
             <svg
@@ -153,12 +153,12 @@
         </div>
 
         <div class="space-y-3">
-          <label class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400"
+          <label class="px-3 text-xs text-gray-500 uppercase "
             >Customization</label
           >
 
           <a
-            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+            class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100   hover:text-gray-700"
             routerLink="/setting"
           >
             <svg
@@ -196,13 +196,13 @@
             src="../../../assets/images/profile.png"
             alt="avatar"
           />
-          <span class="mx-2 font-medium text-gray-800 dark:text-gray-200">{{
+          <span class="mx-2 font-medium text-gray-800 ">{{
             user.user.username
           }}</span>
         </a>
         <button
           (click)="logout()"
-          class="text-gray-500 transition-colors duration-200 rotate-180 dark:text-gray-400 rtl:rotate-0 hover:text-blue-500 dark:hover:text-blue-400 relative bottom-1"
+          class="text-gray-500 transition-colors duration-200 rotate-180  rtl:rotate-0 hover:text-blue-500  relative bottom-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

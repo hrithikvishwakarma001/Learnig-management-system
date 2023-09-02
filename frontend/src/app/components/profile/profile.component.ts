@@ -12,6 +12,7 @@ import { Instructor } from 'src/app/types/Instructor';
 export class ProfileComponent implements OnInit {
   UpdateForm!: FormGroup;
   instructorData!: Instructor;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -24,7 +25,6 @@ export class ProfileComponent implements OnInit {
 
   fetchAndInitializeForm(): void {
     const instructorId = JSON.parse(localStorage.getItem('instructor')!)?.id;
-    // console.log(instructorId);
     if (!instructorId) {
       this.router.navigate(['/instructor']);
       return;
@@ -33,24 +33,24 @@ export class ProfileComponent implements OnInit {
     this.instructorService.getById(instructorId).subscribe(
       (res) => {
         this.instructorData = res.data;
-        this.initializeForm(res.data);
+        this.initializeForm();
       },
       (err) => console.error(err),
     );
   }
 
-  initializeForm(data:Instructor): void {
+  initializeForm(): void {
     this.UpdateForm = this.fb.group({
-      name: [data.name, Validators.required],
+      name: [this.instructorData.name, Validators.required],
       gender: [
-        data.gender,
+        this.instructorData.gender,
         [Validators.required, Validators.minLength(4)],
       ],
-      date_of_birth: [data.date_of_birth, Validators.required],
-      department: [data.department, Validators.required],
-      email: [data.email, Validators.required],
+      date_of_birth: [this.instructorData.date_of_birth, Validators.required],
+      department: [this.instructorData.department, Validators.required],
+      email: [this.instructorData.email, Validators.required],
       contact_number: [
-        data.contact_number,
+        this.instructorData.contact_number,
         [
           Validators.required,
           Validators.minLength(10),

@@ -1,16 +1,16 @@
-<section class="min-h-screen bg-white ">
+<section class="min-h-screen bg-white">
   <div class="container px-6 py-10 mx-auto">
     <div
       class="flex flex-col-reverse lg:flex lg:items-center lg:-mx-10 lg:flex-row"
     >
       <div class="lg:w-1/2 lg:mx-10">
         <h1
-          class="text-3xl font-extrabold text-gray-800 capitalize  lg:text-6xl"
+          class="text-3xl font-extrabold text-gray-800 capitalize lg:text-6xl"
         >
-          {{instructorData && instructorData.name}}’s profile
+          {{ instructorData && instructorData.name }}’s profile
         </h1>
 
-        <p class="mt-4 text-gray-500 ">
+        <p class="mt-4 text-gray-500">
           See your profile information and update it.
         </p>
 
@@ -20,48 +20,60 @@
           class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2"
         >
           <!-- Full Name -->
+
           <div>
-            <label class="block mb-2 text-sm text-gray-600 "
+            <label class="block mb-2 text-sm text-gray-600"
               >Full Name</label
             >
             <input
-              formControlName="name"
-              placeholder="John Doe"
               type="text"
-              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              placeholder="John Doe"
+              formControlName="name"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
-            <p
-              *ngIf="
-                UpdateForm.get('name')?.hasError('required') &&
-                UpdateForm.get('name')?.touched
-              "
-              class="text-red-500 mt-1"
-            >
-              Full Name is required
+            <p>
+              <span
+                *ngIf="
+                  UpdateForm.get('name')?.hasError('required') &&
+                  UpdateForm.get('name')?.touched
+                "
+                class="text-red-500 mt-1"
+              >
+                Name is required
+              </span>
+              <span
+                *ngIf="
+                  UpdateForm.get('name')?.hasError('required') &&
+                  UpdateForm.get('name')?.touched
+                "
+                class="text-red-500 mt-1"
+              >
+                Name is required
+              </span>
             </p>
           </div>
           <!-- Email (Read-only) -->
           <div>
-            <label class="block mb-2 text-sm text-gray-600 "
+            <label class="block mb-2 text-sm text-gray-600"
               >Email address</label
             >
             <input
               formControlName="email"
               type="email"
               readonly
-              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:none"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:none"
             />
           </div>
 
           <!-- Date of Birth -->
           <div>
-            <label class="block mb-2 text-sm text-gray-600 "
+            <label class="block mb-2 text-sm text-gray-600"
               >Date of Birth</label
             >
             <input
               formControlName="date_of_birth"
               type="date"
-              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             <p
               *ngIf="
@@ -76,12 +88,10 @@
 
           <!-- Department Dropdown -->
           <div>
-            <label class="block mb-2 text-sm text-gray-600 "
-              >Department</label
-            >
+            <label class="block mb-2 text-sm text-gray-600">Department</label>
             <select
               formControlName="department"
-              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             >
               <option value="" disabled selected>Select Department</option>
               <option value="Science">Science</option>
@@ -101,9 +111,7 @@
           </div>
           <!-- Gender -->
           <div>
-            <label class="block mb-2 text-sm text-gray-600 "
-              >Gender</label
-            >
+            <label class="block mb-2 text-sm text-gray-600">Gender</label>
             <div class="flex items-center mt-2">
               <label class="inline-flex items-center mr-4">
                 <input
@@ -148,14 +156,14 @@
           </div>
           <!-- Contact Number -->
           <div>
-            <label class="block mb-2 text-sm text-gray-600 "
+            <label class="block mb-2 text-sm text-gray-600"
               >Contact Number</label
             >
             <input
               type="text"
               placeholder="XXX-XX-XXXX-XXX"
               formControlName="contact_number"
-              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg     focus:border-blue-400  focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+              class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             <p>
               <span
@@ -219,7 +227,7 @@
           <p class="flex items-start -mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 mx-2 text-blue-500 "
+              class="w-6 h-6 mx-2 text-blue-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -232,15 +240,15 @@
               />
             </svg>
 
-            <span class="mx-2 text-gray-700 truncate w-72 ">
-             +91 {{ UpdateForm.get("contact_number")?.value }}
+            <span class="mx-2 text-gray-700 truncate w-72">
+              +91 {{ UpdateForm.get("contact_number")?.value }}
             </span>
           </p>
 
           <p class="flex items-start -mx-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 mx-2 text-blue-500 "
+              class="w-6 h-6 mx-2 text-blue-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -253,18 +261,18 @@
               />
             </svg>
 
-            <span class="mx-2 text-gray-700 truncate w-72 "
+            <span class="mx-2 text-gray-700 truncate w-72"
               >{{ UpdateForm.get("email")?.value }}
             </span>
           </p>
         </div>
 
         <div class="hidden mt-6 w-80 md:mt-8 lg:block">
-          <h3 class="text-gray-600 ">Follow us</h3>
+          <h3 class="text-gray-600">Follow us</h3>
 
           <div class="flex mt-4 -mx-1.5">
             <a
-              class="mx-1.5  text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
+              class="mx-1.5 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
               href="#"
             >
               <svg
@@ -280,7 +288,7 @@
             </a>
 
             <a
-              class="mx-1.5  text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
+              class="mx-1.5 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
               href="#"
             >
               <svg
@@ -305,7 +313,7 @@
             </a>
 
             <a
-              class="mx-1.5  text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
+              class="mx-1.5 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
               href="#"
             >
               <svg
@@ -322,7 +330,7 @@
             </a>
 
             <a
-              class="mx-1.5  text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
+              class="mx-1.5 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
               href="#"
             >
               <svg

@@ -275,7 +275,7 @@ def course_list(request):
     return Response({
         'message': 'List of all courses',
         'status': status.HTTP_200_OK,
-        'data': serializer.data
+        'data': serializer.data[::-1]
     })
     
 @api_view(['GET'])
